@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Baruchが取得・利用・保存する情報と、外部サービスへの送信、削除・権限取消しについて。">
+  <title>プライバシーポリシー — Baruch</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <a class="skip" href="#main">本文へ</a>
+  <header class="site-header"><a class="brand" href="./">Baruch</a><nav aria-label="ページ"><a href="privacy.html" aria-current="page">プライバシー</a><a href="terms.html">利用条件</a></nav></header>
+  <main id="main" class="document">
+    <p class="eyebrow">情報の取扱い</p><h1>プライバシーポリシー</h1>
+    <p class="lead">Baruchは、開発者本人の予定管理と準備・出発支援に必要な情報を扱います。以下は、現在の個人利用版の取扱いです。</p>
+    <section><h2>1. 取得する情報と目的</h2>
+      <dl>
+        <dt>Googleカレンダーの予定</dt><dd>予定名、開始・終了日時、場所、予定ID、繰り返し・取消し等の情報を、表示、変更の照合、経路計画、通知の更新に使います。アプリから登録・修正・削除した内容はGoogleカレンダーへ送ります。</dd>
+        <dt>入力・設定・確認記録</dt><dd>アプリ内の入力履歴、場所の設定、自宅住所、経路・準備・出発計画、通知予約、確認操作の時刻、QRの照合用文字列、同期結果等を保存します。QRは準備確認に使い、カメラ映像を録画・外部送信する機能はありません。</dd>
+        <dt>現在地</dt><dd>本人が位置情報を許可して現在地からの計画を求めた場合、位置と精度・取得時刻を使います。現在の版は前景での位置取得に対応し、常時の位置追跡は実装していません。</dd>
+        <dt>Google接続用の情報</dt><dd>Googleから受け取る接続用token等をiOSのKeychainに保存し、許可されたカレンダー操作に使います。Googleのパスワードをアプリが受け取る仕組みではありません。</dd>
+      </dl>
+    </section>
+    <section><h2>2. Googleへのアクセス権限</h2>
+      <p>読取り接続では所有カレンダーの予定読取り権限（<code>calendar.events.owned.readonly</code>）、登録用接続では所有カレンダーの予定の表示・作成・変更・削除を含む権限（<code>calendar.events.owned</code>）を求めます。Googleが許可する範囲は専用カレンダーだけに限定されませんが、現在のアプリの取得・操作先は本人が指定した専用カレンダーです。</p>
+      <p>Googleから取得した情報は、ここに記載した本人向け機能の提供・改善に限って使います。広告の配信、情報の販売、汎用AIモデルの学習には使いません。Google APIから受け取った情報の利用・転送は、<a href="https://developers.google.com/terms/api-services-user-data-policy">Google API Services User Data Policy</a>のLimited Useの要件に従います。</p>
+    </section>
+    <section><h2>3. 外部サービスへ送る情報</h2>
+      <ul>
+        <li><strong>Google：</strong>認証と、専用カレンダーの予定取得・登録・変更・削除のために、接続情報と必要な予定情報を送ります。</li>
+        <li><strong>Appleの地図・経路サービス：</strong>地点検索や所要時間の取得のために、住所・地点・出発地や目的地・日時等を送ります。現在地から計画する場合は現在地を使います。</li>
+        <li><strong>Yahoo!乗換案内のWeb検索：</strong>対応する駅間の便を確認するため、駅名と日付・到着希望時刻等を送ります。予定名・Google接続token・自宅の住所・QR文字列はこの駅間検索へ付けません。</li>
+        <li><strong>ブラウザや他の地図アプリ：</strong>本人が外部で経路を開く操作をした場合、リンクに含まれる地点や経路条件がそのサービスへ渡ります。</li>
+      </ul>
+      <p>本人が別途許可するGoogle Apps Script・Pushcut・ショートカットの連携試験では、専用カレンダーの読取りと、端末の同期を促す固定文の通知送信を行う場合があります。Pushcutへ予定本文・住所・QR・Google接続tokenは送りません。この連携による常時監視は現在未稼働です。</p>
+      <p>各サービスでは通常の通信に伴うIPアドレス等も扱われます。現在のアプリには、予定本文を外部AIへ自動送信する機能や、遅刻連絡を第三者へ自動送信する有効な機能はありません。</p>
+    </section>
+    <section><h2>4. 保存と保守</h2>
+      <p>予定の控え、履歴、計画、確認記録等はiPhoneのアプリ内に保存し、Googleカレンダーの予定はGoogle側にも残ります。保守では、本人管理のMacに状態ファイル・実行記録・復元用バックアップを保存することがあります。開発支援ツールで本人の情報を扱う場合も、本人が認めた保守・検証の範囲に限ります。認証tokenやQRの実値を、この公開サイトや公開リポジトリへ掲載しません。</p>
+      <p>同期や通知を停止しても、保存済みの予定・履歴・バックアップは自動で全削除されません。復元に使う控えも、本人が保守対象として管理します。</p>
+    </section>
+    <section><h2>5. 削除と権限の取消し</h2>
+      <p>対応する予定はアプリまたはGoogleカレンダーで削除できます。入力履歴の削除とGoogle予定の削除は別の操作です。Google側で削除した予定の取消し記録や復元用の控えが、端末やバックアップに残る場合があります。</p>
+      <p>Googleへのアクセス許可は、<a href="https://myaccount.google.com/connections">Googleアカウントのサードパーティ接続</a>から取り消せます。取消しだけでGoogleの予定や保守用バックアップが削除されるわけではありません。保存情報の整理は管理者本人が行います。</p>
+    </section>
+    <section><h2>6. この案内サイト</h2>
+      <p>このサイトはGitHub Pagesで配信します。独自の広告・アクセス解析・入力フォームは設置していません。GitHubは配信・セキュリティ等のために訪問者のIPアドレス等を扱います。詳細は<a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement">GitHubのプライバシー声明</a>を確認してください。</p>
+    </section>
+    <section><h2>7. 管理者と変更</h2>
+      <p>管理者は<a href="https://github.com/Jeremiargh">Jeremiargh</a>です。問い合わせ先は<a href="https://github.com/Jeremiargh/Jeremiargh.github.io/issues">このサイトのGitHub Issues</a>です。Issuesは公開されるため、予定・住所・QR・認証情報を投稿しないでください。</p>
+      <p>情報の利用目的や送信先を追加する場合は、この説明を更新し、必要な本人確認・同意を得てから適用します。</p>
+    </section>
+    <p class="small">最終更新：2026年10月15日</p>
+  </main>
+  <footer><a href="./">アプリ案内</a><a href="terms.html">利用条件</a></footer>
+</body>
+</html>
